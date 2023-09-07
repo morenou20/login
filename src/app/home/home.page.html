@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Prueba Daniel Moreno, Eros Pasten
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,35 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card style="margin: 0 auto; width: 500px; height: 280px">
+      <ion-card-content>
+
+          <ion-input label="Correo electrónico" label-placement="floating" fill="outline"placeholder="example@duocuc.cl" type="email" [ngModel]="usuario"></ion-input>
+      </ion-card-content>
+
+      <ion-card-content>
+<ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="contraseña" type="password" [ngModel]="password"></ion-input>
+  
+      </ion-card-content>
+
+      <ion-card-content>
+      <ion-button fill="outline" expand="block" style="border-radius: 5px;" (click)="login()">Ingresar</ion-button>
+      <ion-button fill="clear">Recuperar Contraseña</ion-button>
+      </ion-card-content>
+
+    </ion-card>
+
+
+    <ion-alert
+      [isOpen]="abrir"
+      header="Error"
+      message="Intente nuevamente"
+      [buttons]="btn_alert"
+      (didDismiss)="alerta(false)"
+    ></ion-alert>
+
+
+
+
   </div>
 </ion-content>

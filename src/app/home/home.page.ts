@@ -1,12 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  usuario: string = '';
+  password: string = '';
+
+  abrir = false;
+  btn_alert = ['cerrar'];
+
+  constructor(private router: Router) { }
+
+  alerta(isOpen: boolean) {
+    this.abrir = isOpen;
+  }
+
+  ngOnInit() {
+  }
+
+  login() {
+
+
+    if (this.usuario == "admin" && this.password == "admin") {
+
+      console.log(this.usuario);
+      console.log(this.password);
+
+      let prm: NavigationExtras = {
+        state:
+        {
+          user: this.usuario,
+          pass: this.password
+        }
+      }
+
+      this.router.navigate(['principal'], prm); //ir hacia una carpeta x
+
+    } else {
+      this.abrir = true;
+    }
+  }
 
 }
